@@ -13,7 +13,7 @@ from envs.utils import RMDPasMDP, RMDPFlatten
 # Run experiments
 #
 
-num_runs = 19 # Number of trials to run
+num_runs = 10 # Number of trials to run
 skip_to_plotting = False # Use existing data to plot and skip experiments
 device = torch.device('cpu') if not torch.cuda.is_available() else torch.device('cuda')
 
