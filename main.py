@@ -13,8 +13,9 @@ from envs.utils import RMDPasMDP, RMDPFlatten
 # Run experiments
 #
 
-num_runs = 10 # Number of trials to run
+num_runs = 19 # Number of trials to run
 skip_to_plotting = False # Use existing data to plot and skip experiments
+device = torch.device('cpu') if not torch.cuda.is_available() else torch.device('cuda')
 
 if not skip_to_plotting:
     # Cloud (RQL)
@@ -64,7 +65,7 @@ if not skip_to_plotting:
                                 episode_limit=-1, \
                                 log_freq=1000, \
                                 test_num=100, \
-                                device=torch.device('cpu'))
+                                device=device)
         
         torch.save(net.state_dict(), './results/palindrome/rql_'+str(n)+'.pt')
         np.save('./results/palindrome/rql_'+str(n)+'.npy', np.array(logs))
@@ -88,7 +89,7 @@ if not skip_to_plotting:
                                 episode_limit=-1, \
                                 log_freq=1000, \
                                 test_num=100, \
-                                device=torch.device('cpu'))
+                                device=device)
         
         torch.save(net.state_dict(), './results/palindrome/ql_'+str(n)+'.pt')
         np.save('./results/palindrome/ql_'+str(n)+'.npy', np.array(logs))
