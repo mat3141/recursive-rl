@@ -64,7 +64,7 @@ if not skip_to_plotting:
                                 episode_limit=-1, \
                                 log_freq=1000, \
                                 test_num=100, \
-                                device=torch.device('cuda'))
+                                device=torch.device('cpu'))
         
         torch.save(net.state_dict(), './results/palindrome/rql_'+str(n)+'.pt')
         np.save('./results/palindrome/rql_'+str(n)+'.npy', np.array(logs))
@@ -88,7 +88,7 @@ if not skip_to_plotting:
                                 episode_limit=-1, \
                                 log_freq=1000, \
                                 test_num=100, \
-                                device=torch.device('cuda'))
+                                device=torch.device('cpu'))
         
         torch.save(net.state_dict(), './results/palindrome/ql_'+str(n)+'.pt')
         np.save('./results/palindrome/ql_'+str(n)+'.npy', np.array(logs))
